@@ -35,7 +35,7 @@ footer>p{font-size:16px}
 footer h3{font-size:14px;font-weight:normal;margin-bottom:8px}
 .social-links{max-width:540px;margin:auto;display:flex;justify-content:space-between;align-items:flex-start}
 .social-links a{color:#fff;text-decoration:none;font-size:12px;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:62px}
-.social-links i{font-size:31px}
-.social-links a:nth-child(1) i{color:#3788e8}.social-links a:nth-child(2) i{color:#f14c92}.social-links a:nth-child(3) i{color:#fff}.social-links a:nth-child(4) i{color:red}.social-links a:nth-child(5) i{color:#fff}
+.social-icon{width:31px;height:31px;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font:bold 22px Arial;line-height:1}
+.facebook{background:#287be0}.instagram{background:linear-gradient(135deg,#7c3dde,#f12f77,#ff9f27)}.twitter{background:#050505}.youtube{background:#f00000;border-radius:8px;font-size:15px}.github{background:#fff;color:#052f5f;border-radius:50%;font-size:20px}
 
 @media(max-width:768px){header{padding:15px 20px;height:auto;flex-direction:column;gap:10px}nav{gap:18px}.hero{height:350px}.hero h2{font-size:30px}.features,.article{padding-left:25px;padding-right:25px}.features-content,.article-content{grid-template-columns:1fr}.features img,.article-image img{height:auto}.social-links{flex-wrap:wrap;gap:15px;justify-content:center}}
