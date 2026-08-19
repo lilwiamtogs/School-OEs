@@ -8,7 +8,7 @@ nav a{color:#fff;text-decoration:none;font-size:13px;font-weight:bold;height:100
 nav a:first-child:after{content:"";position:absolute;left:0;right:0;bottom:17px;height:3px;background:#ffd400}
 nav a:hover{color:#ffd700}
 
-.hero{height:380px;background:linear-gradient(rgba(0,43,81,.12),rgba(0,43,81,.12)),url("images/header.jpg") center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff}
+.hero{height:380px;background:linear-gradient(rgba(0,43,81,.12),rgba(0,43,81,.12)),url("images/header.jpg?v=2") center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff}
 .hero-content{margin-top:10px;text-shadow:0 1px 2px rgba(0,0,0,.3)}
 .hero h2{font-size:40px;line-height:1.1;margin-bottom:20px}
 .hero p{font-size:15px;line-height:1.45;margin-bottom:26px}
