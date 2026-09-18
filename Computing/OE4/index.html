@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Culinary Adventure</title>
+    <link rel="stylesheet" href="style.css?v=20260918-2">
+</head>
+<body>
+    <header class="header">
+        <a class="logo" href="#" onclick="showSlide(0)">
+            <span>CA</span>
+            A Culinary Adventure
+        </a>
+
+        <nav class="nav">
+            <button class="navButton active" onclick="showSlide(0)">Filipino</button>
+            <button class="navButton" onclick="showSlide(1)">Japanese</button>
+            <button class="navButton" onclick="showSlide(2)">Mexican</button>
+            <button class="navButton" onclick="showSlide(3)">Indian</button>
+        </nav>
+
+        <p class="counter"><span id="currentNumber">1</span> / 4</p>
+    </header>
+
+    <main>
+        <section class="slide filipino active">
+            <img class="food" src="img/fil-food-cutout.png" alt="Filipino pork adobo">
+
+            <div class="info">
+                <p class="country">01 / The Philippines</p>
+                <h1>Pork<br>Adobo</h1>
+                <p class="description">
+                    A glossy, savory-sour classic slowly braised with vinegar,
+                    soy sauce, garlic, bay leaves, and peppercorns.
+                </p>
+
+                <div class="details">
+                    <p><b>Profile</b>Savory + tangy</p>
+                    <p><b>Style</b>Slow braise</p>
+                    <p><b>Signature</b>Bay leaf</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide japanese">
+            <img class="food" src="img/jap-food-cutout.png" alt="Japanese ramen">
+
+            <div class="info">
+                <p class="country">02 / Japan</p>
+                <h1>Ramen</h1>
+                <p class="description">
+                    A warming bowl of springy noodles, rich broth, egg,
+                    scallions, and deeply savory toppings.
+                </p>
+
+                <div class="details">
+                    <p><b>Profile</b>Rich + umami</p>
+                    <p><b>Style</b>Noodle soup</p>
+                    <p><b>Signature</b>Soft egg</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide mexican">
+            <img class="food" src="img/mex-food-cutout.png" alt="Mexican street tacos">
+
+            <div class="info">
+                <p class="country">03 / Mexico</p>
+                <h1>Street<br>Tacos</h1>
+                <p class="description">
+                    Warm tortillas layered with boldly seasoned fillings,
+                    fresh toppings, and plenty of bright lime.
+                </p>
+
+                <div class="details">
+                    <p><b>Profile</b>Bright + smoky</p>
+                    <p><b>Style</b>Handheld</p>
+                    <p><b>Signature</b>Fresh lime</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide indian">
+            <img class="food" src="img/ind-food-cutout.png" alt="Indian butter chicken">
+
+            <div class="info">
+                <p class="country">04 / India</p>
+                <h1>Butter<br>Chicken</h1>
+                <p class="description">
+                    Tender chicken in a silky tomato-butter sauce, fragrant
+                    with warm spices and finished with cream.
+                </p>
+
+                <div class="details">
+                    <p><b>Profile</b>Creamy + spiced</p>
+                    <p><b>Style</b>Tomato curry</p>
+                    <p><b>Signature</b>Makhani sauce</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <button class="nextButton" onclick="nextSlide()">Next <span>↓</span></button>
+
+    <script src="script.js"></script>
+</body>
+</html>
