@@ -162,11 +162,8 @@ body {
 
 .details {
     margin-top: 25px;
-    padding: 18px 0;
     display: flex;
     gap: 15px;
-    border-top: 1px solid rgba(0, 0, 0, 0.25);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
     font-family: Georgia, serif;
     font-size: 14px;
 }
@@ -264,7 +261,6 @@ body {
 
     .details {
         margin-top: 15px;
-        padding: 12px 0;
         font-size: 12px;
     }
 
