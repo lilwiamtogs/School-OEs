@@ -1,0 +1,30 @@
+#include <iostream>
+
+int main()
+{
+    int seconds;
+
+    std::cout << "Countdown: ";
+    std::cin >> seconds;
+
+    for (int t = seconds; t >= 0; --t)
+    {
+        if (t == 0)
+        {
+            std::cout << "GO!\n";
+        }
+        else
+        {
+            if (t <= 1)
+            {
+                std::cout << t << "...READY!\n";
+            }
+            else
+            {
+                std::cout << t << "...\n";
+            }
+        }
+    }
+
+    return 0;
+}
