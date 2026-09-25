@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Koffee Haus, find visit details, or send a message through the demo contact form.">
+    <title>Contact | Koffee Haus</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="site-nav container">
+            <a class="brand" href="index.html"><img src="images/KF logo.png" alt="Koffee Haus Antipolo logo"><span>Koffee Haus</span></a>
+            <button class="menu-button" type="button">Menu</button>
+            <ul class="nav-list"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="articles.html">Drinks</a></li><li><a class="active-link" href="contact.html">Contact</a></li></ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container page-hero-content">
+                <div><p class="section-label">Visit or say hello</p><h1>Come as you are. Stay for another cup.</h1></div>
+                <p class="page-intro">Questions, drink suggestions, and cafe stories are always welcome. Drop by the Haus or leave us a note.</p>
+            </div>
+        </section>
+
+        <section class="contact-section container">
+            <div class="contact-details">
+                <p class="section-label blue-text">Find the Haus</p><h2>Let's get in touch.</h2>
+                <p class="contact-intro">This website is a student concept project. The contact information and form below are presented for demonstration.</p>
+                <div class="contact-list">
+                    <p><strong>Location</strong><br>Antipolo, Rizal, Philippines</p>
+                    <p><strong>Email</strong><br><a href="mailto:hello@koffeehaus.example">hello@koffeehaus.example</a></p>
+                    <p><strong>Hours</strong><br>Daily · 8:00 AM-8:00 PM</p>
+                    <p><strong>Social</strong><br><a href="#instagram">Instagram</a> · <a href="#facebook">Facebook</a></p>
+                </div>
+            </div>
+
+            <form class="contact-form" action="#" method="post">
+                <div class="form-heading"><p class="section-label">Send a note</p><h2>What's on your mind?</h2></div>
+                <div class="form-row">
+                    <div class="field-group"><label for="name">Your name</label><input type="text" id="name" name="name" required></div>
+                    <div class="field-group"><label for="email">Email address</label><input type="email" id="email" name="email" required></div>
+                </div>
+                <div class="field-group">
+                    <label for="topic">What can we help with?</label>
+                    <select id="topic" name="topic"><option value="visit">Planning a visit</option><option value="drink">Drink question</option><option value="story">Share a coffee story</option><option value="other">Something else</option></select>
+                </div>
+                <div class="field-group"><label for="message">Message</label><textarea id="message" name="message" rows="6" required></textarea></div>
+                <button class="button light-button form-button" type="submit">Send message</button>
+                <p class="form-note">Demo form only. Your message will not be sent.</p>
+                <p class="form-status"></p>
+            </form>
+        </section>
+
+        <section class="faq-section">
+            <div class="container faq-content">
+                <div><p class="section-label blue-text">Before you visit</p><h2>A few quick answers.</h2></div>
+                <div class="faq-list">
+                    <details><summary>Do you feature non-coffee drinks?</summary><p>Yes. The journal includes matcha, fruit drinks, and other cafe favorites alongside espresso.</p></details>
+                    <details><summary>Can I suggest a drink for the blog?</summary><p>Absolutely. Use the demo form as a model for the kind of suggestions Koffee Haus would love to receive.</p></details>
+                    <details><summary>Is the contact form connected?</summary><p>No. It is intentionally non-functional for this website project and provides an on-page confirmation only.</p></details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-brand"><img src="images/KF logo.png" alt="Koffee Haus logo"><div><strong>Koffee Haus</strong><p>Coffee in our orbit.</p></div></div>
+            <div><h2 class="footer-title">Explore</h2><ul class="footer-links"><li><a href="about.html">Our story</a></li><li><a href="articles.html">Drink journal</a></li><li><a href="contact.html">Visit and contact</a></li></ul></div>
+            <div><h2 class="footer-title">Follow along</h2><ul class="footer-links"><li><a href="#instagram">Instagram</a></li><li><a href="#facebook">Facebook</a></li><li><a href="#tiktok">TikTok</a></li></ul></div>
+        </div>
+        <div class="container footer-bottom"><p>&copy; 2026 Koffee Haus. All rights reserved.</p><div><a href="#privacy">Privacy</a><a href="#terms">Terms</a></div></div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
