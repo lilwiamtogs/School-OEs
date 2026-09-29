@@ -1,0 +1,95 @@
+PT DOCUMENTATION WRITING GUIDE
+
+I. INTRODUCTION
+
+  •   a. Project Overview: Write a 3-to-4 sentence summary explaining what your
+      website is, why you chose the topic, and what main purpose it serves.
+
+  •   b. Purpose and Objectives:
+
+         o   General Objective: State the ultimate goal (e.g., "To design and develop a
+             responsive website that effectively showcases [Topic] using modern web
+             standards").
+
+         o   Specific Objectives: List 3 measurable goals (e.g., "To write semantic
+             HTML5 markup," "To apply CSS Flexbox for layout positioning," "To
+             implement basic JavaScript interactions").
+
+  •   c. Scope and Limitations:
+
+         o   Scope: Clearly state what pages and features are built into your site (e.g.,
+             Home, About, Services, Contact with a form).
+
+         o   Limitations: Mention what is not included because it is a first-year project
+             (e.g., "The website is static and does not connect to a live backend
+             database; user inputs are handled purely via client-side scripts").
+
+II. USER & SYSTEM REQUIREMENTS
+
+  •   a. Target Audience: Describe the demographic or group of people who would
+      benefit from using your website (e.g., students looking for study guides, local
+      customers browsing a small business menu, or classmates reviewing a
+      portfolio).
+
+  •   b. Basic Functional Requirements: List what the system/website allows the
+      user to do using bullet points starting with "The system must..." (e.g., The system
+      must allow users to navigate between pages via a top menu bar, The system
+      must display responsive content on mobile viewports).
+
+III. WEB DESIGN & ARCHITECTURE
+
+  •   a. Website Structure (Sitemap): Draw or text-map the layout of your project
+      directory and how pages link to each other (e.g., Home links directly to Blog,
+      About, Services, and Contact pages).
+
+  •   b. Page Layouts & Wireframes: Include snapshots of your early hand-drawn
+      sketches or digital box models showing where your navigation bar, headers,
+      images, text blocks, and footers are placed.
+
+  •   c. Visual Design (Color Scheme & Typography):
+         o   Color Scheme: List your primary, secondary, and accent colors (include
+             Hex codes if you have them, e.g., #2C3E50 for dark navy).
+
+         o   Typography: State the font families used throughout the site (e.g., Google
+             Font: Inter for body text, Poppins for headings).
+
+IV. DEVELOPMENT & IMPLEMENTATION
+
+  •   a. Tools and Technologies Used: Briefly list the software and languages you
+      used to build the project (e.g., Visual Studio Code as code editor,
+      HTML5/CSS3/JavaScript for coding, and Live Server for local preview testing).
+
+  •   b. Sample Code Snippets (HTML/CSS/JS): Paste 2 or 3 short, clean blocks of
+      code that you are most proud of—such as your navigation bar styling or a custom
+      CSS grid rule.
+
+V. PROJECT SCREENSHOTS & UI WALKTHROUGH
+
+  •   a. Home / Landing Page: Insert a clear screenshot of your main landing page
+      hero section. Add a short 1-sentence caption explaining the design.
+
+  •   b. Content / Service Page: Insert a screenshot showing how data, products, or
+      information are organized and displayed on your sub-pages with a brief
+      discussion.
+
+  •   c. Contact Page & Form: Insert a screenshot of your contact section or
+      feedback form layout with a brief discussion.
+
+  •   d. Mobile Responsive View: Insert a screenshot taken using browser developer
+      tools (or an actual phone preview) showing how your layout successfully stacks
+      or adjusts for smaller screens with a brief discussion.
+
+      Note: Screenshot is not limited to one. Multiple screenshots are better.
+
+VI. LEARNING OUTCOMES
+
+  •   Write a brief reflection (3-4 bullet points) detailing the key technical skills and
+      concepts you mastered while completing the project (e.g., Learned how to
+      properly structure semantic containers in HTML5, Gained hands-on proficiency
+      in styling responsive layouts using CSS).
+
+VII. REFERENCES
+
+  •   List all internal or external lessons, documentation sites, or graphic assets used
+      following standard academic format.
+
