@@ -1,0 +1,199 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Submit a lost or found item report for the LPU Laguna campus."
+    />
+    <title>Submit a report | Lyceum Returns</title>
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,SOFT,WONK,wght@9..144,20,0,400;9..144,20,0,500&family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,SOFT,WONK,wght@9..144,20,0,400;9..144,20,0,500&family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="site.css?v=19" />
+    <link rel="stylesheet" href="reports.css?v=21" />
+  </head>
+  <body id="top">
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="wordmark" href="index.html">Lyceum Returns</a>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="reports.html">Browse reports</a>
+        </nav>
+        <a class="header-action active" href="report.html">Report an item</a>
+      </div>
+    </header>
+
+    <main class="reports-main">
+      <h1 class="report-page-title">Report an item</h1>
+      <section id="submit" class="submit-section">
+        <div class="submit-copy">
+          <h2>Submit the details.</h2>
+          <p>A clear post gives someone a fair chance to recognize an item.</p>
+          <button id="tips-button" class="tips-button" type="button">
+            Tips
+          </button>
+          <ul class="tips-list">
+            <li>Include the item, date, and location.</li>
+            <li>Keep IDs, addresses, and private numbers out of the post.</li>
+            <li>We'll review the response and keep your contact private.</li>
+          </ul>
+        </div>
+        <div class="form-slot">
+          <p class="check-board">
+            Check the board first. Your item may already be posted.
+            <a href="reports.html">Browse reports</a>
+          </p>
+          <form id="report-form" class="custom-form">
+            <fieldset class="report-choice">
+              <legend>What happened to the item?</legend>
+              <label>
+                <input type="radio" name="reportType" value="Lost" required />
+                <span>
+                  <strong>I lost something</strong>
+                  <small>Help me find it</small>
+                </span>
+              </label>
+              <label>
+                <input type="radio" name="reportType" value="Found" required />
+                <span>
+                  <strong>I found something</strong>
+                  <small>Help me return it</small>
+                </span>
+              </label>
+            </fieldset>
+            <label class="form-field">
+              Item name
+              <input
+                name="itemName"
+                maxlength="120"
+                required
+                placeholder="e.g. Blue umbrella"
+              />
+            </label>
+            <div class="form-row">
+              <label class="form-field">
+                Date lost or found
+                <input
+                  id="report-date"
+                  name="reportDate"
+                  type="hidden"
+                  required
+                />
+                <input id="report-date-native" type="date" />
+                <button id="date-trigger" class="date-trigger" type="button">
+                  Choose a date
+                </button>
+                <div id="date-picker" class="date-picker" hidden></div>
+              </label>
+              <label class="form-field">
+                Last seen or found location
+                <input
+                  name="location"
+                  maxlength="160"
+                  required
+                  placeholder="e.g. Library, second floor"
+                />
+              </label>
+            </div>
+            <label class="form-field">
+              Identifying details <span>(optional)</span>
+              <textarea
+                name="details"
+                maxlength="600"
+                rows="2"
+                placeholder="Color, brand, markings, or other details. Leave one identifying detail private for verification."
+              ></textarea>
+            </label>
+            <label class="form-field">
+              Your contact email or phone number
+              <input
+                name="contact"
+                autocomplete="email"
+                maxlength="120"
+                required
+                placeholder="Email address or phone number"
+              />
+            </label>
+            <label class="form-field photo-field">
+              Add a photo <span>(optional)</span>
+              <input name="photo" type="file" accept="image/*" />
+              <div id="photo-preview" class="photo-preview" hidden>
+                <img alt="Selected photo preview" />
+                <button id="remove-photo" type="button">Remove photo</button>
+              </div>
+              <small
+                >JPG, PNG, or WebP. A smaller image uploads more
+                reliably.</small
+              >
+            </label>
+            <label class="consent-field">
+              <input name="photoConsent" type="checkbox" />
+              <span
+                >I agree that this photo may be stored in Drive and shown
+                publicly with the report. Do not include faces, IDs, or private
+                information.</span
+              >
+            </label>
+            <label class="form-honeypot">
+              Leave this field empty
+              <input name="website" tabindex="-1" autocomplete="off" />
+            </label>
+            <button class="submit-button" type="submit">Send report</button>
+            <p id="form-status" class="form-status"></p>
+          </form>
+          <iframe
+            class="bridge-frame"
+            name="bridge-frame"
+            title="Report submission"
+            tabindex="-1"
+          ></iframe>
+        </div>
+      </section>
+      <section id="safety" class="safety">
+        <span class="safety-mark">i</span>
+        <p>
+          <strong>Arrange handoffs carefully.</strong> Meet in a public campus
+          location and verify an identifying detail that is not shown in the
+          post. Keep private contact information off the public board.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <a class="wordmark" href="index.html">
+          <span
+            >LYCEUM RETURNS<small
+              >LPU LAGUNA Â· CAMPUS LOST &amp; FOUND</small
+            ></span
+          >
+        </a>
+        <p>A student-run service for returning belongings around campus.</p>
+      </div>
+      <div>
+        <strong>Quick links</strong>
+        <a href="index.html">Home</a>
+        <a href="reports.html">Browse reports</a>
+        <a href="report.html">Report an item</a>
+      </div>
+      <div>
+        <strong>Holding office</strong>
+        <span>OSAS, JPL Building</span>
+        <span>Mon-Sat, 9:00 AM-5:00 PM</span>
+        <span>Items kept for five days</span>
+      </div>
+      <small class="footer-credit">A student project for LPU Laguna.</small>
+    </footer>
+    <script src="form-config.js?v=4"></script>
+    <script src="reports.js?v=14"></script>
+  </body>
+</html>

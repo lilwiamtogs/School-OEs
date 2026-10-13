@@ -1,0 +1,162 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Browse LPU Laguna lost and found reports or submit an item."
+    />
+
+    <title>Lost and found | Lyceum Returns</title>
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,SOFT,WONK,wght@9..144,20,0,400;9..144,20,0,500&family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,SOFT,WONK,wght@9..144,20,0,400;9..144,20,0,500&family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="site.css?v=19" />
+    <link rel="stylesheet" href="reports.css?v=21" />
+  </head>
+  <body id="top">
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="wordmark" href="index.html">Lyceum Returns</a>
+        <nav>
+          <a href="index.html">Home</a>
+          <a class="active" href="reports.html">Browse reports</a>
+        </nav>
+        <a class="header-action" href="report.html">Report an item</a>
+      </div>
+    </header>
+    <main class="reports-main">
+      <section class="intro">
+        <div>
+          <h1>Lost <span class="display-ampersand">&amp;</span> found</h1>
+        </div>
+        <p>
+          Search current campus posts by item or location, then choose a tile or
+          list view.
+        </p>
+      </section>
+      <section id="reports" class="board">
+        <div class="toolbar">
+          <label class="search-label" for="search"
+            >Search reports<input
+              id="search"
+              type="search"
+              placeholder="Item or location" /></label
+          ><label class="filter-label" for="type-filter"
+            >Show
+            <div class="custom-select">
+              <select id="type-filter" class="custom-select-native">
+                <option value="all">Everything</option>
+                <option value="lost">I lost something</option>
+                <option value="found">I found something</option></select
+              ><button
+                id="type-filter-trigger"
+                class="custom-select-trigger"
+                type="button"
+              >
+                Everything
+              </button>
+              <div id="type-filter-menu" class="custom-select-menu" hidden>
+                <button type="button" data-value="all">Everything</button
+                ><button type="button" data-value="lost">
+                  I lost something</button
+                ><button type="button" data-value="found">
+                  I found something
+                </button>
+              </div>
+            </div></label
+          ><label class="filter-label status-filter-hidden" for="status-filter"
+            >Status<select id="status-filter">
+              <option value="unclaimed">Unclaimed</option>
+              <option value="claimed">Claimed</option>
+              <option value="all">All statuses</option>
+            </select></label
+          >
+          <div class="view-switch">
+            <button type="button" class="active" data-view="tiles">Tiles</button
+            ><button type="button" data-view="list">List</button>
+          </div>
+          <button id="refresh" class="refresh" type="button">Refresh</button>
+        </div>
+        <p id="message" class="feed-message">
+          Add a public-safe CSV URL in form-config.js to load reports.
+        </p>
+        <div id="reports-list" class="reports-list tiles"></div>
+        <p id="empty" class="empty" hidden>
+          Nothing matches yet. Try fewer words, or
+          <a href="report.html">post a report</a>.
+        </p>
+      </section>
+      <section id="safety" class="safety">
+        <span class="safety-mark">i</span>
+        <p>
+          <strong>Arrange handoffs carefully.</strong> Meet in a public campus
+          location and verify an identifying detail that is not shown in the
+          post. Keep private contact information off the public board.
+        </p>
+      </section>
+      <iframe
+        class="bridge-frame"
+        name="bridge-frame"
+        title="Claim submission"
+        tabindex="-1"
+      ></iframe>
+      <dialog id="claim-dialog" class="claim-dialog">
+        <button class="dialog-close" type="button">&times;</button>
+        <h2>This might be yours.</h2>
+        <p id="claim-summary" class="claim-summary"></p>
+        <form id="claim-form" class="custom-form">
+          <input type="hidden" name="reportKey" /><label class="form-field"
+            >Your name
+            <input name="claimantName" maxlength="100" required /></label
+          ><label class="form-field"
+            >Your contact email or phone
+            <input name="claimantContact" maxlength="120" required /></label
+          ><label class="form-field"
+            >How can you prove it is yours?
+            <textarea
+              name="proof"
+              maxlength="400"
+              rows="3"
+              required
+              placeholder="Share a detail that is not visible on the public post."
+            ></textarea></label
+          ><button class="submit-button" type="submit">Send claim</button>
+          <p id="claim-status" class="form-status"></p>
+        </form>
+      </dialog>
+    </main>
+    <footer class="site-footer">
+      <div>
+        <a class="wordmark" href="index.html"
+          ><span
+            >LYCEUM RETURNS<small
+              >LPU LAGUNA Â· CAMPUS LOST &amp; FOUND</small
+            ></span
+          ></a
+        >
+        <p>A student-run service for returning belongings around campus.</p>
+      </div>
+      <div>
+        <strong>Quick links</strong><a href="index.html">Home</a
+        ><a href="reports.html">Browse reports</a
+        ><a href="report.html">Report an item</a>
+      </div>
+      <div>
+        <strong>Holding office</strong><span>OSAS, JPL Building</span
+        ><span>Mon-Sat, 9:00 AM-5:00 PM</span
+        ><span>Items kept for five days</span>
+      </div>
+      <small class="footer-credit">A student project for LPU Laguna.</small>
+    </footer>
+    <script src="form-config.js?v=4"></script>
+    <script src="reports.js?v=14"></script>
+  </body>
+</html>
