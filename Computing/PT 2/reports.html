@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Browse LPU Laguna lost and found reports or submit an item."
+      content="Browse items found on the LPU Laguna campus and claim what is yours."
     />
 
-    <title>Lost and found | Lyceum Returns</title>
+    <title>Found items | Lyceum Returns</title>
     <link
       rel="preload"
       as="style"
@@ -19,7 +19,7 @@
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,SOFT,WONK,wght@9..144,20,0,400;9..144,20,0,500&family=Inter:wght@400;500;600;700&display=swap"
     />
     <link rel="stylesheet" href="site.css?v=19" />
-    <link rel="stylesheet" href="reports.css?v=21" />
+    <link rel="stylesheet" href="reports.css?v=27" />
   </head>
   <body id="top">
     <header class="site-header">
@@ -27,68 +27,51 @@
         <a class="wordmark" href="index.html">Lyceum Returns</a>
         <nav>
           <a href="index.html">Home</a>
-          <a class="active" href="reports.html">Browse reports</a>
+          <a class="active" href="reports.html">Browse found items</a>
         </nav>
-        <a class="header-action" href="report.html">Report an item</a>
+        <a class="header-action" href="report.html">Report a found item</a>
       </div>
     </header>
     <main class="reports-main">
       <section class="intro">
         <div>
-          <h1>Lost <span class="display-ampersand">&amp;</span> found</h1>
+          <h1>Found items</h1>
         </div>
         <p>
-          Search current campus posts by item or location, then choose a tile or
-          list view.
+          Browse items found on campus. Search by item or location, then choose
+          a tile or list view.
         </p>
       </section>
       <section id="reports" class="board">
         <div class="toolbar">
-          <label class="search-label" for="search"
-            >Search reports<input
-              id="search"
-              type="search"
-              placeholder="Item or location" /></label
-          ><label class="filter-label" for="type-filter"
-            >Show
-            <div class="custom-select">
-              <select id="type-filter" class="custom-select-native">
-                <option value="all">Everything</option>
-                <option value="lost">I lost something</option>
-                <option value="found">I found something</option></select
-              ><button
-                id="type-filter-trigger"
-                class="custom-select-trigger"
-                type="button"
-              >
-                Everything
-              </button>
-              <div id="type-filter-menu" class="custom-select-menu" hidden>
-                <button type="button" data-value="all">Everything</button
-                ><button type="button" data-value="lost">
-                  I lost something</button
-                ><button type="button" data-value="found">
-                  I found something
-                </button>
-              </div>
-            </div></label
-          ><label class="filter-label status-filter-hidden" for="status-filter"
-            >Status<select id="status-filter">
-              <option value="unclaimed">Unclaimed</option>
-              <option value="claimed">Claimed</option>
-              <option value="all">All statuses</option>
-            </select></label
-          >
+          <label class="search-label" for="search">
+            Search found items
+            <input id="search" type="search" placeholder="Item or location" />
+          </label>
           <div class="view-switch">
-            <button type="button" class="active" data-view="tiles">Tiles</button
-            ><button type="button" data-view="list">List</button>
+            <button type="button" class="active" data-view="tiles">Tiles</button>
+            <button type="button" data-view="list">List</button>
           </div>
           <button id="refresh" class="refresh" type="button">Refresh</button>
         </div>
         <p id="message" class="feed-message">
-          Add a public-safe CSV URL in form-config.js to load reports.
+          Add a public-safe CSV URL in js/form-config.js to load reports.
         </p>
         <div id="reports-list" class="reports-list tiles"></div>
+        <template id="report-card-template">
+          <article class="report-card">
+            <img class="report-photo" alt="" loading="lazy" hidden />
+            <div class="photo-placeholder" aria-label="No photo available">NO PHOTO</div>
+            <div class="report-card-content">
+              <span class="type-tag"></span>
+              <h2></h2>
+              <p class="report-place"></p>
+              <p class="report-date"></p>
+              <p class="report-detail" hidden></p>
+              <button class="claim-button" type="button">This is mine</button>
+            </div>
+          </article>
+        </template>
         <p id="empty" class="empty" hidden>
           Nothing matches yet. Try fewer words, or
           <a href="report.html">post a report</a>.
@@ -138,7 +121,7 @@
         <a class="wordmark" href="index.html"
           ><span
             >LYCEUM RETURNS<small
-              >LPU LAGUNA Â· CAMPUS LOST &amp; FOUND</small
+              >LPU LAGUNA Â· CAMPUS FOUND ITEMS</small
             ></span
           ></a
         >
@@ -146,8 +129,8 @@
       </div>
       <div>
         <strong>Quick links</strong><a href="index.html">Home</a
-        ><a href="reports.html">Browse reports</a
-        ><a href="report.html">Report an item</a>
+        ><a href="reports.html">Browse found items</a
+        ><a href="report.html">Report a found item</a>
       </div>
       <div>
         <strong>Holding office</strong><span>OSAS, JPL Building</span
@@ -156,7 +139,8 @@
       </div>
       <small class="footer-credit">A student project for LPU Laguna.</small>
     </footer>
-    <script src="form-config.js?v=4"></script>
-    <script src="reports.js?v=14"></script>
+    <script src="js/form-config.js?v=5"></script>
+    <script src="js/d3-dsv.min.js?v=1"></script>
+    <script type="module" src="js/reports.js?v=21"></script>
   </body>
 </html>

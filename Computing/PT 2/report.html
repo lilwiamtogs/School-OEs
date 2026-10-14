@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Submit a lost or found item report for the LPU Laguna campus."
+      content="Report an item you found on the LPU Laguna campus."
     />
     <title>Submit a report | Lyceum Returns</title>
     <link
@@ -18,7 +18,7 @@
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,SOFT,WONK,wght@9..144,20,0,400;9..144,20,0,500&family=Inter:wght@400;500;600;700&display=swap"
     />
     <link rel="stylesheet" href="site.css?v=19" />
-    <link rel="stylesheet" href="reports.css?v=21" />
+    <link rel="stylesheet" href="reports.css?v=27" />
   </head>
   <body id="top">
     <header class="site-header">
@@ -26,18 +26,18 @@
         <a class="wordmark" href="index.html">Lyceum Returns</a>
         <nav>
           <a href="index.html">Home</a>
-          <a href="reports.html">Browse reports</a>
+          <a href="reports.html">Browse found items</a>
         </nav>
-        <a class="header-action active" href="report.html">Report an item</a>
+        <a class="header-action active" href="report.html">Report a found item</a>
       </div>
     </header>
 
     <main class="reports-main">
-      <h1 class="report-page-title">Report an item</h1>
+      <h1 class="report-page-title">Report a found item</h1>
       <section id="submit" class="submit-section">
         <div class="submit-copy">
           <h2>Submit the details.</h2>
-          <p>A clear post gives someone a fair chance to recognize an item.</p>
+          <p>Share what you found so its owner can recognize and claim it.</p>
           <button id="tips-button" class="tips-button" type="button">
             Tips
           </button>
@@ -50,26 +50,10 @@
         <div class="form-slot">
           <p class="check-board">
             Check the board first. Your item may already be posted.
-            <a href="reports.html">Browse reports</a>
+            <a href="reports.html">Browse found items</a>
           </p>
           <form id="report-form" class="custom-form">
-            <fieldset class="report-choice">
-              <legend>What happened to the item?</legend>
-              <label>
-                <input type="radio" name="reportType" value="Lost" required />
-                <span>
-                  <strong>I lost something</strong>
-                  <small>Help me find it</small>
-                </span>
-              </label>
-              <label>
-                <input type="radio" name="reportType" value="Found" required />
-                <span>
-                  <strong>I found something</strong>
-                  <small>Help me return it</small>
-                </span>
-              </label>
-            </fieldset>
+            <input type="hidden" name="reportType" value="Found" />
             <label class="form-field">
               Item name
               <input
@@ -81,21 +65,16 @@
             </label>
             <div class="form-row">
               <label class="form-field">
-                Date lost or found
+                Date found
                 <input
                   id="report-date"
                   name="reportDate"
-                  type="hidden"
+                  type="date"
                   required
                 />
-                <input id="report-date-native" type="date" />
-                <button id="date-trigger" class="date-trigger" type="button">
-                  Choose a date
-                </button>
-                <div id="date-picker" class="date-picker" hidden></div>
               </label>
               <label class="form-field">
-                Last seen or found location
+                Where did you find it?
                 <input
                   name="location"
                   maxlength="160"
@@ -173,7 +152,7 @@
         <a class="wordmark" href="index.html">
           <span
             >LYCEUM RETURNS<small
-              >LPU LAGUNA Â· CAMPUS LOST &amp; FOUND</small
+              >LPU LAGUNA Â· CAMPUS FOUND ITEMS</small
             ></span
           >
         </a>
@@ -182,8 +161,8 @@
       <div>
         <strong>Quick links</strong>
         <a href="index.html">Home</a>
-        <a href="reports.html">Browse reports</a>
-        <a href="report.html">Report an item</a>
+        <a href="reports.html">Browse found items</a>
+        <a href="report.html">Report a found item</a>
       </div>
       <div>
         <strong>Holding office</strong>
@@ -193,7 +172,7 @@
       </div>
       <small class="footer-credit">A student project for LPU Laguna.</small>
     </footer>
-    <script src="form-config.js?v=4"></script>
-    <script src="reports.js?v=14"></script>
+    <script src="js/form-config.js?v=5"></script>
+    <script type="module" src="js/reports.js?v=21"></script>
   </body>
 </html>

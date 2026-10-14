@@ -119,6 +119,11 @@
   font: 9px var(--body);
   letter-spacing: 0.1em;
 }
+.report-photo[hidden],
+.photo-placeholder[hidden],
+.report-detail[hidden] {
+  display: none;
+}
 .report-card-content {
   padding: 12px 13px;
 }
@@ -238,9 +243,6 @@
   background: var(--white);
   color: var(--muted);
   font-size: 11px;
-}
-#report-date-native {
-  display: none;
 }
 .tips-button {
   display: none;
@@ -987,7 +989,12 @@
   text-transform: uppercase;
 }
 .type-tag.lost {
-  background: var(--crimson-dark);
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  background: #f8e7e8;
+  color: #65121c;
 }
 .report-card h2 {
   color: var(--ink);
@@ -1151,8 +1158,7 @@
   height: 88px;
   font-size: 16px;
 }
-.report-choice label::before,
-.date-trigger {
+.report-choice label::before {
   width: 100%;
   min-height: 44px;
   padding: 10px 11px;
@@ -1162,70 +1168,6 @@
   text-align: left;
   font: 16px var(--body);
   cursor: pointer;
-}
-.date-trigger:focus-visible,
-.calendar-days button:focus-visible,
-.calendar-head button:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 1px;
-}
-.date-picker {
-  position: absolute;
-  z-index: 5;
-  width: 265px;
-  margin-top: 5px;
-  padding: 13px;
-  border: 1px solid var(--line);
-  background: var(--white);
-  box-shadow: 0 12px 28px rgba(31, 53, 82, 0.14);
-}
-.date-picker[hidden] {
-  display: none;
-}
-.calendar-head,
-.calendar-week,
-.calendar-days {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 4px;
-  align-items: center;
-}
-.calendar-head {
-  grid-template-columns: 30px 1fr 30px;
-  margin-bottom: 12px;
-  text-align: center;
-}
-.calendar-head strong {
-  font: 600 14px var(--body);
-}
-.calendar-head button {
-  border: 0;
-  background: transparent;
-  color: var(--crimson);
-  font-size: 22px;
-  cursor: pointer;
-}
-.calendar-week {
-  color: var(--muted);
-  font-size: 11px;
-  text-align: center;
-}
-.calendar-days button,
-.calendar-days span {
-  min-height: 30px;
-  border: 0;
-  background: transparent;
-  color: var(--ink);
-  font: 13px var(--body);
-  text-align: center;
-}
-.calendar-days button {
-  cursor: pointer;
-}
-.calendar-days button:hover,
-.calendar-days button.selected {
-  background: var(--crimson);
-  color: #fff;
 }
 
 .claim-button {
@@ -1471,8 +1413,6 @@
     padding: 10px 12px;
   }
   .safety p {
-    max-height: 3.2em;
-    overflow: hidden;
     font-size: 13px;
     line-height: 1.6;
   }
@@ -1510,15 +1450,9 @@
   .form-field input,
   .form-field textarea,
   .custom-form input[type="file"],
-  .date-trigger {
+  #report-date {
     min-height: 48px;
     font-size: 16px;
-  }
-  #report-date-native {
-    display: block;
-  }
-  #date-trigger {
-    display: none;
   }
   .form-field textarea {
     min-height: 96px;
@@ -1557,4 +1491,274 @@
   to {
     background-position: -100% 0;
   }
+}
+
+/* Give the report and claim forms a little more room and clearer states. */
+#report-form {
+  gap: 20px;
+  padding: 26px;
+  background: var(--white);
+}
+.custom-form .form-field input,
+.custom-form .form-field textarea,
+.custom-form input[type="file"] {
+  border-radius: 3px;
+  transition:
+    border-color 140ms ease,
+    box-shadow 140ms ease;
+}
+.custom-form .form-field input:focus,
+.custom-form .form-field textarea:focus,
+.custom-form input[type="file"]:focus-visible {
+  border-color: var(--gold);
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(184, 168, 120, 0.18);
+}
+.report-choice label > span {
+  min-height: 58px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  border-radius: 3px;
+  background: #fffefa;
+  transition:
+    background 140ms ease,
+    border-color 140ms ease,
+    color 140ms ease;
+}
+.report-choice label > span small {
+  color: var(--muted);
+  font: 10px var(--body);
+}
+.report-choice input:checked + span small {
+  color: rgba(255, 255, 255, 0.82);
+}
+.submit-button {
+  min-height: 46px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition:
+    background 140ms ease,
+    opacity 140ms ease,
+    transform 140ms ease;
+}
+.submit-button:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+.submit-button:focus-visible,
+.photo-preview button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+.form-status {
+  padding: 0;
+  font-size: 12px;
+}
+.form-status.success,
+.form-status.error {
+  padding: 10px 12px;
+  border-left: 3px solid currentColor;
+  background: #f8f7f2;
+}
+.claim-dialog {
+  border-radius: 4px;
+  box-shadow: 0 24px 70px rgba(24, 31, 40, 0.24);
+  overflow: visible;
+}
+.claim-dialog[open] {
+  animation: claim-dialog-in 180ms ease-out both;
+}
+.claim-dialog > h2 {
+  margin: 0;
+  padding: 22px 58px 5px 24px;
+  background: #fffefa;
+  font-size: 32px;
+  line-height: 1.15;
+}
+.claim-dialog > .claim-summary {
+  margin: 0;
+  padding: 5px 58px 18px 24px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+.claim-dialog .custom-form {
+  border-top: 0;
+  margin-top: 0;
+}
+.claim-dialog .form-field {
+  gap: 7px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+}
+.claim-dialog .form-field input,
+.claim-dialog .form-field textarea {
+  border-color: #d8d8d3;
+  background: #fff;
+  font: 15px var(--body);
+}
+.claim-dialog .form-field input {
+  min-height: 46px;
+}
+.claim-dialog .form-field textarea {
+  min-height: 96px;
+  line-height: 1.5;
+}
+.claim-dialog .dialog-close {
+  top: 16px;
+  right: 16px;
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--crimson);
+  font-size: 21px;
+  transition: background 140ms ease, color 140ms ease;
+}
+.claim-dialog .dialog-close:hover {
+  background: var(--crimson);
+  color: #fff;
+}
+.claim-dialog .dialog-close:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+.claim-dialog .submit-button {
+  min-width: 132px;
+}
+.claim-dialog::backdrop {
+  background: rgba(24, 31, 40, 0.48);
+  backdrop-filter: blur(2px);
+}
+.claim-dialog .custom-form {
+  gap: 16px;
+  padding: 22px;
+}
+.claim-dialog .form-field input,
+.claim-dialog .form-field textarea {
+  border-radius: 3px;
+}
+@media (max-width: 520px) {
+  #report-form {
+    gap: 17px;
+    padding: 18px 15px;
+  }
+  .claim-dialog .custom-form {
+    padding: 17px 15px;
+  }
+  .claim-dialog > h2 {
+    padding: 19px 52px 5px 17px;
+    font-size: 27px;
+  }
+  .claim-dialog > .claim-summary {
+    padding: 5px 17px 15px;
+  }
+}
+
+@keyframes claim-dialog-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.99); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .claim-dialog[open] { animation: none; }
+}
+
+/* Keep list-view labels and buttons in their own predictable spaces. */
+.reports-list.list .report-card {
+  grid-template-columns: 112px minmax(0, 1fr);
+  overflow: hidden;
+  border-radius: 6px;
+}
+.reports-list.list .report-card-content {
+  grid-template-columns:
+    120px minmax(145px, 1fr) minmax(130px, 1fr) minmax(100px, auto)
+    minmax(180px, 1.4fr);
+  gap: 10px 14px;
+  padding: 16px 18px;
+}
+.reports-list.list .type-tag {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: start;
+  width: 100%;
+  min-width: 112px;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.reports-list.list .report-card h2 {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  align-self: center;
+}
+.reports-list.list .report-place {
+  grid-column: 3;
+  grid-row: 1 / 3;
+  align-self: center;
+}
+.reports-list.list .report-date {
+  grid-column: 4;
+  grid-row: 1 / 3;
+  align-self: center;
+}
+.reports-list.list .report-detail {
+  grid-column: 5;
+  grid-row: 1 / 3;
+  align-self: center;
+}
+.reports-list.list .claim-button,
+.reports-list.tiles .claim-button {
+  min-width: 112px;
+  min-height: 42px;
+  padding: 9px 13px;
+  white-space: nowrap;
+}
+.reports-list.list .claim-button {
+  grid-column: 1;
+  grid-row: 2;
+  justify-self: start;
+  align-self: center;
+  margin-top: 0;
+}
+@media (max-width: 980px) {
+  .reports-list.list .report-card-content {
+    grid-template-columns: minmax(112px, 0.7fr) minmax(0, 1.3fr);
+    gap: 10px 14px;
+  }
+  .reports-list.list .type-tag { grid-column: 1; grid-row: 1; }
+  .reports-list.list .report-card h2 { grid-column: 2; grid-row: 1; }
+  .reports-list.list .report-place { grid-column: 1; grid-row: 2; }
+  .reports-list.list .report-date { grid-column: 2; grid-row: 2; }
+  .reports-list.list .report-detail { grid-column: 1 / -1; grid-row: 3; }
+  .reports-list.list .claim-button { grid-column: 1 / -1; grid-row: 4; }
+}
+@media (max-width: 560px) {
+  .reports-list.list { padding: 10px; }
+  .reports-list.list .report-card { grid-template-columns: 1fr; }
+  .reports-list.list .report-photo,
+  .reports-list.list .photo-placeholder {
+    height: 170px;
+    min-height: 0;
+  }
+  .reports-list.list .report-card-content {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px 12px;
+    padding: 14px;
+  }
+  .reports-list.list .type-tag { grid-column: 1; grid-row: 1; }
+  .reports-list.list .report-card h2 { grid-column: 1 / -1; grid-row: 2; }
+  .reports-list.list .report-place { grid-column: 1; grid-row: 3; }
+  .reports-list.list .report-date { grid-column: 2; grid-row: 3; text-align: right; }
+  .reports-list.list .report-detail { grid-column: 1 / -1; grid-row: 4; }
+  .reports-list.list .claim-button { grid-column: 1 / -1; grid-row: 5; }
 }
