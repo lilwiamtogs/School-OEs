@@ -1,4 +1,4 @@
-import { bridgeMessage, formatDate, getReportDetails } from "./reports-data.js?v=3";
+import { bridgeMessage, formatDate, getReportDetails } from "./reports-data.js?v=4";
 
 export function initReportBoard() {
   const source = window.LOST_FOUND_REPORTS_CSV_URL;
@@ -106,9 +106,17 @@ export function initReportBoard() {
   const submitUrl = window.LOST_FOUND_SUBMIT_URL;
   const bridgeFrame = document.querySelector('iframe[name="bridge-frame"]');
 
+  function fallbackReportKey(row) {
+    return [row.type, row.item, row.place, row.date]
+      .map((value) => String(value || "").trim())
+      .join(" | ");
+  }
+
   function openClaim(row) {
     claimForm.reset();
-    claimForm.elements.reportKey.value = row.key;
+    const reportKey = String(row.key || "").trim() || fallbackReportKey(row);
+    claimForm.elements.reportKey.value = reportKey;
+    claimForm.dataset.reportKey = reportKey;
     claimForm.dataset.item = row.item;
     claimForm.dataset.date = row.date;
     claimForm.dataset.location = row.place;
@@ -140,7 +148,16 @@ export function initReportBoard() {
         nonce: crypto.randomUUID
           ? crypto.randomUUID()
           : `${Date.now()}-${Math.random()}`,
-        reportKey: data.get("reportKey"),
+        reportKey:
+          String(data.get("reportKey") || "").trim() ||
+          claimForm.dataset.reportKey ||
+          [
+            claimForm.dataset.item,
+            claimForm.dataset.location,
+            claimForm.dataset.date,
+          ]
+            .map((value) => String(value || "").trim())
+            .join(" | "),
         reportItem: claimForm.dataset.item || "",
         reportDate: claimForm.dataset.date || "",
         reportLocation: claimForm.dataset.location || "",

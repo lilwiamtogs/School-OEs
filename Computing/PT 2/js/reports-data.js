@@ -26,7 +26,17 @@ export function getReportDetails(record) {
     note: value("Identifying details"),
     image: photoSource(value("Image URL")),
     status: value("Status").toLowerCase() || "unclaimed",
-    key: value("Timestamp"),
+    // Some public-safe board exports omit the response Timestamp. Claims still
+    // need an identifier, so use the record's visible identifying fields when
+    // the source timestamp is unavailable.
+    key:
+      value("Timestamp") ||
+      [
+        value("Report type"),
+        value("Item name"),
+        value("Last seen or found location"),
+        value("Date lost or found"),
+      ].join(" | "),
   };
 }
 
